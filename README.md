@@ -97,8 +97,8 @@ On first launch, Neovim will automatically:
 | Neovim    | ✅        | >= 0.9 recommended |
 | Git       | ✅        | Plugin management  |
 | Nerd Font | ✅        | Icons support      |
----| ripgrep   | ⚙️        | Better search      |
----| fd        | ⚙️        | File finder        |
+<!--| ripgrep   | ⚙️        | Better search      |
+| fd        | ⚙️        | File finder        |-->
 | Node.js   | ⚙️.ing    | LSP / tooling      |
 | Python    | ⚙️        | Plugin support     |
 

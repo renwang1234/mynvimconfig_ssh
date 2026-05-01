@@ -2,7 +2,6 @@
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "conform.nvim": { "branch": "master", "commit": "dca1a190aa85f9065979ef35802fb77131911106" },
   "everforest": { "branch": "master", "commit": "aeef62ee97872d2557d25904d160ec93a4a355f8" },
-  "leetcode.nvim": { "branch": "master", "commit": "4e8b3683940a8377379ce9398e7f329e3560b42c" },
   "lualine.nvim": { "branch": "master", "commit": "131a558e13f9f28b15cd235557150ccb23f89286" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "0c2823e0418f3d9230ff8b201c976e84de1cb401" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc" },

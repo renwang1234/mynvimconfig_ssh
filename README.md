@@ -109,9 +109,9 @@ On first launch, Neovim will automatically:
 ```bash
 ~/.config/nvim
 ├── lua/
-│   ├── core/        # settings, keymaps, autocmds
-│   ├── plugins/     # plugin specifications
-│   └── config/      # plugin configurations
+│   ├── config/        # settings, keymaps, autocmds
+│   ├── plugins/     # plugin configurations
+│   └── lspconfig/      # lsp configurations
 ├── init.lua
 ```
 

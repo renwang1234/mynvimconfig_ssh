@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 local uv_loop = vim.uv or vim.loop
 
@@ -10,12 +10,12 @@ if not uv_loop.fs_stat(lazypath) then
     "--filter=blob:none",
     "--branch=stable",
     lazyrepo,
-    lazypath
+    lazypath,
   })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", ":ErrorMsg" },
-      { out,                            "WarningMsg" },
+      { out, "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()

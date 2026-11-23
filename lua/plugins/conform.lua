@@ -10,11 +10,11 @@ return {
       javascript = { "prettierd" },
       typescript = { "prettierd" },
 
-      css = { "prettier" },
-      html = { "prettier" },
-      json = { "prettier" },
-      yaml = { "prettier" },
-      markdown = { "prettier" },
+      css = { "prettierd" },
+      html = { "prettierd" },
+      json = { "prettierd" },
+      yaml = { "prettierd" },
+      markdown = { "prettierd" },
     },
     format_on_save = {
       timeout_ms = 3000,

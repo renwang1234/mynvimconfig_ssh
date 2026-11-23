@@ -44,7 +44,6 @@ return {
           },
           clangd = {},
           pyright = {},
-          prettierd = {},
         }
         for server, config in pairs(servers) do
           vim.lsp.config(
@@ -67,6 +66,7 @@ return {
           "black",
           "isort",
           "stylua",
+          "prettierd",
           "clang-format",
         },
       },
@@ -74,6 +74,6 @@ return {
   },
 
   opts = {
-    ensure_installed = { "lua_ls", "clangd", "pyright", "prettierd" },
+    ensure_installed = { "lua_ls", "clangd", "pyright" },
   },
 }

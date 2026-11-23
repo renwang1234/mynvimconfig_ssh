@@ -1,6 +1,5 @@
 return {
   "stevearc/conform.nvim",
-  lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   opts = {
     formatters_by_ft = {
@@ -8,9 +7,17 @@ return {
       c = { "clang-format" },
       cpp = { "clang-format" },
       python = { "isort", "black" },
+      javascript = { "prettierd" },
+      typescript = { "prettierd" },
+
+      css = { "prettier" },
+      html = { "prettier" },
+      json = { "prettier" },
+      yaml = { "prettier" },
+      markdown = { "prettier" },
     },
     format_on_save = {
-      timeout_ms = 500,
+      timeout_ms = 3000,
       lsp_format = "fallback",
     },
     formatters = {
@@ -18,15 +25,21 @@ return {
         prepend_args = { "--style=file", "--fallback-style=Google" },
       },
       isort = {
-        command = vim.fn.stdpath("data") .. "/mason/bin/isort",
-        args = { "--profile", "black", "$FILENAME" },
-        stdin = false,
+        prepend_args = {
+          "--profile",
+          "black",
+        },
       },
-      black = {
-        command = vim.fn.stdpath("data") .. "/mason/bin/black",
-        args = { "-" },
-        stdin = true,
-      },
+      --      isort = {
+      --        command = vim.fn.stdpath("data") .. "/mason/bin/isort",
+      --        args = { "--profile", "black", "$FILENAME" },
+      --        stdin = false,
+      --      },
+      --      black = {
+      --        command = vim.fn.stdpath("data") .. "/mason/bin/black",
+      --        args = { "-" },
+      --        stdin = true,
+      --      },
     },
   },
 }

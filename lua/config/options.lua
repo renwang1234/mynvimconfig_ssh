@@ -1,7 +1,6 @@
 -- Disable netrw (must be first)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
 vim.g.loaded_matchit = 1
 vim.g.loaded_spellfile_plugin = 1
 
@@ -77,10 +76,14 @@ vim.opt.ttimeoutlen = 50
 vim.opt.autoread = true
 vim.opt.autowrite = false
 vim.opt.synmaxcol = 300
-vim.opt.lazyredraw = true
 
 -- Python host (替換為你的虛擬環境路徑)
-vim.g.python3_host_prog = "C:\\Users\\Yumi\\.myvenv\\Scripts\\python"
+--vim.g.python3_host_prog = "C:\\Users\\UserName\\.myvenv(your venv)\\Scripts\\python"
+local host = vim.env.NVIM_PYTHON3_HOST
+
+if host and host ~= "" and vim.fn.executable(vim.fn.expand(host)) == 1 then
+  vim.g.python3_host_prog = vim.fn.expand(host)
+end
 
 -- Colorscheme custom highlights
 vim.api.nvim_create_autocmd("ColorScheme", {

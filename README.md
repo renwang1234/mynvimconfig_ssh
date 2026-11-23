@@ -94,7 +94,7 @@ On first launch, Neovim will automatically:
 
 | Tool      | Required  | Description        |
 | --------- | --------  | ------------------ |
-| Neovim    | ✅        | >= 0.9 recommended |
+| Neovim    | ✅        | >= 0.12 recommended |
 | Git       | ✅        | Plugin management  |
 | Nerd Font | ✅        | Icons support      |
 <!--| ripgrep   | ⚙️        | Better search      |

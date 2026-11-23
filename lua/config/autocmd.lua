@@ -1,5 +1,7 @@
+local group = vim.api.nvim_create_augroup("config_autocmds", { clear = true })
 -- neo-tree window settings
 vim.api.nvim_create_autocmd("FileType", {
+  group = group,
   pattern = "neo-tree",
   callback = function()
     vim.opt_local.number = false
@@ -12,13 +14,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Colorscheme custom highlights
-local aug = vim.api.nvim_create_augroup("custom_highlights_everforest", { clear = true })
-
 vim.api.nvim_create_autocmd("ColorScheme", {
-  group = aug,
+  group = group,
   pattern = "everforest",
   callback = function()
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#757567" })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#b8ccbe" })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#5b6266" })
+    vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#5b6266" })
   end,
 })

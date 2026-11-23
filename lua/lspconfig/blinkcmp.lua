@@ -1,38 +1,42 @@
 return {
   "saghen/blink.cmp",
   event = "InsertEnter",
-  -- dependencies = { "rafamadriz/friendly-snippets" },
-  version = '1.*',
+  -- dependencies = { "rafamadriz/fiendly-snippets" },
+  version = "1.*",
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
     keymap = { preset = "super-tab" },
 
     appearance = {
-      nerd_font_variant = "mono"
+      nerd_font_variant = "mono",
     },
 
-    path = {
-      score_offset = 95,
-      opts = {
-        get_cwd = function(_)
-          return vim.fn.getcwd()
-        end,
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+      providers = {
+        path = {
+          score_offset = 95,
+          opts = {
+            get_cwd = function(_)
+              return vim.fn.getcwd()
+            end,
+          },
+        },
+        buffer = {
+          score_offset = 20,
+        },
+        lsp = {
+          transform_items = function(_, items)
+            return vim.tbl_filter(function(item)
+              return item.kind
+                ~= require("blink.cmp.types").CompletionItemKind.Text
+            end, items)
+          end,
+          score_offset = 60,
+          fallbacks = { "buffer" },
+        },
       },
-    },
-
-    buffer = {
-      score_offset = 20,
-    },
-
-    lsp = {
-      transform_items = function(_, items)
-        return vim.tbl_filter(function(item)
-          return item.kind ~= require("blink.cmp.types").CompletionItemKind.Text
-        end, items)
-      end,
-      score_offset = 60,
-      fallbacks = { "buffer" },
     },
 
     completion = {
@@ -59,7 +63,15 @@ return {
           },
         },
       },
+      ghost_text = {
+        enabled = true,
+        show_with_selection = true,
+        show_without_selection = false,
+        show_with_menu = true,
+        show_without_menu = true,
+      },
     },
+
     signature = {
       enabled = true,
       window = {
@@ -74,17 +86,6 @@ return {
       },
     },
 
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
-
-    ghost_text = {
-      enabled = true,
-      show_with_selection = true,
-      show_without_selection = false,
-      show_with_menu = true,
-      show_without_menu = true,
-    },
     cmdline = {
       sources = function()
         local cmd_type = vim.fn.getcmdtype()
@@ -102,12 +103,11 @@ return {
       completion = {
         menu = {
           auto_show = true,
-        }
-      }
+        },
+      },
     },
 
     fuzzy = { implementation = "prefer_rust_with_warning" },
-
-    opts_extend = { "sources.default" }
-  }
+  },
+  opts_extend = { "sources.default" },
 }

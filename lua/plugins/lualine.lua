@@ -1,7 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  -- event = { "BufReadPre", "BufNewFile" },
-  event = { "VeryLazy" },
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     opts = {
@@ -26,17 +25,14 @@ return {
         statusline = { "neo-tree" },
         winbar = { "neo-tree" },
       },
+      ignore_focus = {},
+      globalstatus = false,
+      refresh = {
+        statusline = 2000,
+        tabline = 2000,
+        winbar = 2000,
+      },
     },
-
-    ignore_focus = {},
-    globalstatus = false,
-
-    refresh = {
-      statusline = 2000,
-      tabline = 2000,
-      winbar = 2000,
-    },
-
     sections = {
       lualine_a = { "mode" },
       lualine_b = {

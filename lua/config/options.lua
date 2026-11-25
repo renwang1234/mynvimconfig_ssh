@@ -60,7 +60,7 @@ vim.opt.listchars = {
 }
 
 -- File & performance
-local undodir = vim.fn.expand("~/.vim/undodir")
+local undodir = vim.fn.expand("~/AppData/Local/nvim/undodir")
 if vim.fn.isdirectory(undodir) == 0 then
   vim.fn.mkdir(undodir, "p")
 end
@@ -84,14 +84,3 @@ local host = vim.env.NVIM_PYTHON3_HOST
 if host and host ~= "" and vim.fn.executable(vim.fn.expand(host)) == 1 then
   vim.g.python3_host_prog = vim.fn.expand(host)
 end
-
--- Colorscheme custom highlights
-vim.api.nvim_create_autocmd("ColorScheme", {
-  group = vim.api.nvim_create_augroup("custom_highlights_everforest", {}),
-  pattern = "everforest",
-  callback = function()
-    local api = vim.api
-    api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-    api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
-  end,
-})

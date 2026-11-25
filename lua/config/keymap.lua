@@ -73,8 +73,8 @@ local keymappings = {
     desc = "Window down",
   },
   {
-    from = "<C-h>",
-    to = "<C-w>h",
+    from = "<C-l>",
+    to = "<C-w>l",
     mode = mode_n,
     desc = "Window left",
   },
